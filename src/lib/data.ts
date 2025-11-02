@@ -1,5 +1,54 @@
-export const recipes = [
-  { id: 1, name: "Jollof Rice", category: "lunch" },
-  { id: 2, name: "Efo Riro", category: "lunch" },
-  { id: 3, name: "Moi Moi", category: "breakfast" },
+import type { Recipe } from "../types";
+
+export const recipes: Recipe[] = [
+  {
+    id: 1,
+    name: "Jollof Rice",
+    category: "lunch",
+    region: "general",
+    spiceLevel: 3,
+    ingredients: ["rice", "tomatoes", "onions", "pepper", "stock", "oil"],
+    tags: ["popular", "party-food"],
+    healthNotes: { diabetes: "moderate", hypertension: "reduce-salt", ulcer: "reduce-pepper", pcos: "moderate", pregnancy: "safe", weightLoss: "moderate" },
+  },
+  {
+    id: 2,
+    name: "Efo Riro",
+    category: "lunch",
+    region: "yoruba",
+    spiceLevel: 2,
+    ingredients: ["spinach", "meat", "fish", "palm-oil", "onions", "pepper"],
+    tags: ["vegetable-rich"],
+    healthNotes: { diabetes: "excellent", hypertension: "good", ulcer: "reduce-pepper", pcos: "excellent", pregnancy: "excellent", weightLoss: "excellent" },
+  },
+  {
+    id: 3,
+    name: "Moi Moi",
+    category: "breakfast",
+    region: "yoruba",
+    spiceLevel: 2,
+    ingredients: ["beans", "eggs", "fish", "onions", "pepper", "oil"],
+    tags: ["protein-rich"],
+    healthNotes: { diabetes: "excellent", hypertension: "good", ulcer: "reduce-pepper", pcos: "excellent", pregnancy: "safe", weightLoss: "good" },
+  },
+  {
+    id: 4,
+    name: "Pepper Soup",
+    category: "dinner",
+    region: "general",
+    spiceLevel: 4,
+    ingredients: ["meat", "pepper-soup-spices", "onions", "pepper"],
+    tags: ["light", "protein-rich"],
+    healthNotes: { diabetes: "excellent", hypertension: "good", ulcer: "not-recommended", pcos: "good", pregnancy: "reduce-spice", weightLoss: "excellent" },
+  },
+  {
+    id: 5,
+    name: "Okro Soup",
+    category: "lunch",
+    region: "general",
+    spiceLevel: 1,
+    ingredients: ["okro", "meat", "fish", "palm-oil", "onions", "pepper"],
+    tags: ["light", "vegetable-rich"],
+    healthNotes: { diabetes: "excellent", hypertension: "good", ulcer: "good", pcos: "excellent", pregnancy: "excellent", weightLoss: "excellent" },
+  },
 ];

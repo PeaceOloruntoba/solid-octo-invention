@@ -28,6 +28,8 @@ export type AppState = {
   addToMealPlan: (recipe: Recipe, day: DayId, meal: MealType) => void;
   removeFromMealPlan: (day: DayId, meal: MealType) => void;
   generateShoppingList: () => void;
+  toggleShoppingItem: (name: string) => void;
+  moveCheckedToPantry: () => void;
 };
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -79,4 +81,18 @@ export const useAppStore = create<AppState>((set, get) => ({
     set({ shoppingList: list });
     toast.success("Shopping list generated");
   },
+  toggleShoppingItem: (name) => set((s) => ({
+    shoppingList: s.shoppingList.map((it) => it.name === name ? { ...it, checked: !it.checked } : it)
+  })),
+  moveCheckedToPantry: () => set((s) => {
+    const checked = s.shoppingList.filter((i) => i.checked);
+    if (!checked.length) return {} as any;
+    const newPantry = [...s.pantry];
+    checked.forEach((i) => {
+      if (!newPantry.find((p) => p.name.toLowerCase() === i.name.toLowerCase())) newPantry.push({ name: i.name, checked: false });
+    });
+    const remaining = s.shoppingList.filter((i) => !i.checked);
+    toast.success("Moved checked items to pantry");
+    return { pantry: newPantry, shoppingList: remaining };
+  }),
 }));
