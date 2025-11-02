@@ -12,6 +12,7 @@ import Settings from "./pages/Settings";
 import Logout from "./pages/Logout";
 import NotFound from "./pages/NotFound";
 import Recipes from "./pages/Recipes";
+import RecipeDetails from "./pages/RecipeDetails";
 import { useAuthStore } from "./store/auth";
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/recipes" element={<Recipes />} />
+          <Route path="/recipes/:id" element={<RecipeDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
