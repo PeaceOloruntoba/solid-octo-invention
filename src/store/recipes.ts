@@ -1,12 +1,7 @@
 import { create } from "zustand";
 import { handleError } from "../utils/handleError";
 import { recipes } from "../lib/data";
-
-export type Recipe = {
-  id: number;
-  name: string;
-  category: string;
-};
+import type { Recipe } from "../types";
 
 type RecipeState = {
   items: Recipe[];

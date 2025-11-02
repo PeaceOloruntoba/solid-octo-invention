@@ -1,5 +1,6 @@
 import MainLayout from "../layouts/MainLayout";
-import { useRecipeStore, type Recipe } from "../store/recipes";
+import { useRecipeStore } from "../store/recipes";
+import type { Recipe } from "../types";
 import { useEffect } from "react";
 
 export default function Home() {
